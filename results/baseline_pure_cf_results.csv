@@ -1,0 +1,2 @@
+model,K,precision_at_k,ndcg_at_k,recall_at_k,n_users,n_items,train_interactions,test_interactions
+Pure CF (implicit BPR),10,0.5391,0.5579601426558259,0.008171026824934305,2000,56377,5497252,1374158
