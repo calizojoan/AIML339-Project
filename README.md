@@ -21,11 +21,11 @@ https://zenodo.org/records/6609677
 
 Download these three files from the Zenodo record:
 
-| File | Size | Link |
-|---|---|---|
+| File | Size | Link | Notes |
+|---|---|---|---|
 | `id_mfcc_stats.tsv.bz2` | 93.8 MB | https://zenodo.org/records/6609677/files/id_mfcc_stats.tsv.bz2?download=1 |
 | `userid_trackid_count.tsv.bz2` | 550.6 MB | https://zenodo.org/records/6609677/files/userid_trackid_count.tsv.bz2?download=1 |
-| `id_genres_tf-idf.tsv.bz2` | 3.0 MB | https://zenodo.org/records/6609677/files/id_genres_tf-idf.tsv.bz2?download=1 |
+| `id_genres_tf-idf.tsv.bz2` | 3.0 MB | https://zenodo.org/records/6609677/files/id_genres_tf-idf.tsv.bz2?download=1 | Loaded and subsampled by the data-preparation cells but not used on any model.
 
 The rest of the 15 GB record is not used.
 
@@ -36,14 +36,14 @@ results back to it, so it is intended to be run in Colab.
 
 1. Clone or download this repository:
 
-   git clone https://github.com/calizojoan/AIML339-Project/tree/main
+   git clone https://github.com/calizojoan/AIML339-Project
 
 2. Create a folder in Google Drive and upload the three data files above:
 
    MyDrive/hybrid_music_rec/
-   ├── id_mfcc_stats.tsv.bz2
-   ├── userid_trackid_count.tsv.bz2
-   └── id_genres_tf-idf.tsv.bz2
+ -  id_mfcc_stats.tsv.bz2
+ -  userid_trackid_count.tsv.bz2
+ -  id_genres_tf-idf.tsv.bz2
 
 3. Upload `AIML339project.ipynb` to Colab (or open it from Drive).
 4. Dependencies: the notebook installs `implicit` (`pip install implicit`); PyTorch,
@@ -52,16 +52,11 @@ results back to it, so it is intended to be run in Colab.
 ## Usage
 1. Open `AIML339project.ipynb` in Colab 
 2. Run the first cell to mount Google Drive and accept the permissions prompt:
-```python
-   from google.colab import drive
-   drive.mount('/content/drive')
-```
-3. Check that the data path in the notebook points to your Drive folder from the
-   Installation step.
-4. Run the notebook top to bottom. Results are written to 'MyDrive/hybrid_music_rec/processed'.
+3. Check that WORKDIR in the notebook (/content/drive/MyDrive/hybrid_music_rec) matches your Drive folder from the Installation step.
+4. Run the notebook top to bottom. Results are written to 'MyDrive/hybrid_music_rec/processed/'.
 
 ## Results
-Pre-computed results are in `results/`, so you can inspect them without re-running
+Pre-computed results are in results/ in the repo, so you can inspect them without re-running
 the notebook.
 
 | File | Contents |
@@ -75,18 +70,17 @@ the notebook.
 | `baseline_comparison.csv`, `baseline_pure_cf_results.csv` | Pure-CF baseline results |
 
 ## Repository Contents
-```
+
 AIML339project.ipynb   full pipeline: data prep, splits, models, evaluation, statistics
 results/               result tables and per-seed outputs (see above)
 README.md
 .gitignore
-```
+
 
 ## Settings
 Embedding dimension 64; Adam, learning rate 0.005, weight decay 1e-6; batch size 1024;
-500 steps per epoch; 60 epochs; BPR loss. `implicit` BPR baseline uses library defaults
-(64 factors, learning rate 0.01, regularisation 0.01, 100 iterations). Data subsample:
-the 2,000 most active users; 10% of users and 10% of items are cold in each seed.
+500 steps per epoch; 60 epochs; BPR loss. implicit BPR baseline: 64 factors, learning rate 0.01, regularisation 0.01, 100 iterations
+Data subsample: the 2,000 most active users; 10% of users and 10% of items are cold in each seed.
 
 ## Limitations
 Research prototype evaluated on synthetic cold-start splits of a 2,000-user subsample.
@@ -98,5 +92,5 @@ Joanna Calizo, Victoria University of Wellington
 
 ## License
 Academic project for AIML 339. The dataset (Music4All-Onion) is released under CC BY 4.0.
-Libraries (`implicit`, PyTorch) are subject to their own licences.
+Libraries (implicit, PyTorch) are subject to their own licences.
 
