@@ -2,12 +2,12 @@
 
 AIML339 final project
 
-#Description
+## Description
 A two-tower neural reccommender whose item tower fuses a collaborative (CF) embedding with an audio-content embedding. 
 It compares three fusion mechanisms (concatenation, weighted sum, gated), with and without CF-embedding dropout, against pure-CF and pre-content baselines. 
 Evaluation uses a DropoutNet-style warm/ user-cold/ item-cold protocol over 30 seeds with Holm-corrected Wilcoxon tests.
 
-#Features
+## Features
 - PyTorch two-tower retrieval model trained with BPR loss on implicit feedback
 - Three fusion mechanisms: Concatenation, learned weighted sum, gated fusion
 - CF-embedding dropout (rate 0.3) ablation, following DropoutNet
@@ -15,7 +15,7 @@ Evaluation uses a DropoutNet-style warm/ user-cold/ item-cold protocol over 30 s
 - DropoutNet-style warm / user-cold / item-cold data splits, regenerated per seed (seeds 0-29)
 - Metrics: Precision@10, Recall@10, NDCG@10, with paired Wilcoxon tests and Holm correction
 
-#Dataset
+## Dataset
 **Music4All-Onion** (Moscati et al., CIKM 2022), CC BY 4.0:
 https://zenodo.org/records/6609677
 
@@ -29,7 +29,7 @@ Download these three files from the Zenodo record:
 
 The rest of the 15 GB record is not used.
 
-# Installation
+## Installation
 Requirements: a Google account, Google Colab (GPU runtime, T4 or L4), and about 1 GB of
 free Google Drive space. The notebook reads the data from Google Drive and writes
 results back to it, so it is intended to be run in Colab.
@@ -49,7 +49,7 @@ results back to it, so it is intended to be run in Colab.
 4. Dependencies: the notebook installs `implicit` (`pip install implicit`); PyTorch,
    NumPy, pandas, SciPy, statsmodels and scikit-learn are already available in Colab.
 
-# Usage
+## Usage
 1. Open `AIML339project.ipynb` in Colab 
 2. Run the first cell to mount Google Drive and accept the permissions prompt:
 ```python
