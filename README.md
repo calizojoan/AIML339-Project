@@ -45,15 +45,15 @@ results back to it, so it is intended to be run in Colab.
  -  userid_trackid_count.tsv.bz2
  -  id_genres_tf-idf.tsv.bz2
 
-3. Upload `AIML339project.ipynb` to Colab (or open it from Drive).
-4. Dependencies: the notebook installs `implicit` (`pip install implicit`); PyTorch,
+3. Upload AIML339project.ipynb to Colab (or open it from Drive).
+4. Dependencies: the notebook installs implicit (pip install implicit); PyTorch,
    NumPy, pandas, SciPy, statsmodels and scikit-learn are already available in Colab.
 
 ## Usage
-1. Open `AIML339project.ipynb` in Colab 
+1. Open AIML339project.ipynb in Colab 
 2. Run the first cell to mount Google Drive and accept the permissions prompt:
 3. Check that WORKDIR in the notebook (/content/drive/MyDrive/hybrid_music_rec) matches your Drive folder from the Installation step.
-4. Run the notebook top to bottom. Results are written to 'MyDrive/hybrid_music_rec/processed/'.
+4. Run the notebook top to bottom. Results are written to MyDrive/hybrid_music_rec/processed/.
 
 ## Results
 Pre-computed results are in results/ in the repo, so you can inspect them without re-running
